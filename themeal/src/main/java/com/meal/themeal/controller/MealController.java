@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*") // Allow frontend to call if served separately, or just good practice
+@CrossOrigin(origins = "*") // Allow frontend to call if served separately
 public class MealController {
 
     @Autowired
