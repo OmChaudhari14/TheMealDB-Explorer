@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheMealDB Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">TheMealDB <span>Explorer</span></div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for recipes (e.g. Pasta)...">
+                <button id="searchBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+            <button id="randomBtn" class="btn-secondary">Random Meal</button>
+        </header>
+
+        <nav id="categoryNav">
+            <!-- Categories will be injected here -->
+            <div class="loading-text">Loading categories...</div>
+        </nav>
+
+        <main id="resultsGrid">
+            <div class="welcome-message">
+                <h2>Welcome to TheMealDB Explorer</h2>
+                <p>Search for a meal or select a category to get started.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Recipe Details -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody" class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

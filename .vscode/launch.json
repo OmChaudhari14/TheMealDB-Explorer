@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ThemealApplication<themeal>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.meal.themeal.ThemealApplication",
+            "projectName": "themeal",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
