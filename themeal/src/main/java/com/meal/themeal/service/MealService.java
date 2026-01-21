@@ -10,13 +10,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class MealService {
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String BASE_URL = "https://www.themealdb.com/api/json/v1/1";
+    private static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1";
 
     // Simple In-Memory Cache
     // Key: URL/Identifier, Value: CacheEntry (Data + Expiry)
     private final Map<String, CacheEntry> cache = new ConcurrentHashMap<>();
-    private final long DEFAULT_TTL = 300 * 1000; // 5 minutes
-    private final long CATEGORY_TTL = 24 * 60 * 60 * 1000; // 24 hours
+    private static final long DEFAULT_TTL = 300 * 1000; // 5 minutes
+    private static final long CATEGORY_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
     private static class CacheEntry {
         Object data;
@@ -60,8 +60,8 @@ public class MealService {
 
         // Fallback: If no meals found by name, try searching by category
         boolean found = false;
-        if (response instanceof java.util.Map) {
-            java.util.Map<?, ?> map = (java.util.Map<?, ?>) response;
+        if (response instanceof Map) {
+            Map<?, ?> map = (Map<?, ?>) response;
             if (map.get("meals") != null) {
                 found = true;
             }
@@ -71,8 +71,8 @@ public class MealService {
             try {
                 String catUrl = BASE_URL + "/filter.php?c=" + query;
                 Object catResponse = restTemplate.getForObject(catUrl, Object.class);
-                if (catResponse instanceof java.util.Map) {
-                    java.util.Map<?, ?> catMap = (java.util.Map<?, ?>) catResponse;
+                if (catResponse instanceof Map) {
+                    Map<?, ?> catMap = (Map<?, ?>) catResponse;
                     if (catMap.get("meals") != null) {
                         response = catResponse;
                     }
